@@ -5,19 +5,17 @@ class Emplooyee:
         self.last_name = last_name
         self.age = age
         self.profession = profession
+        self._onboarding = datetime.now()
 
     @property
     def onboarding_time(self):
-        return datetime.now()
+        return self._onboarding
 
     @property
     def info(self):
         return {'fullname': f'{self.first_name} {self.last_name}',
-                'age': self.age,
-                'working_time': f'{self.onboarding_time - datetime.now()}'
+                'age': f'{self.age}',
+                'working_time': f'{datetime.now() - self.onboarding_time}'
                 }
 
-setattr(Emplooyee, 'department', None)
-#new_person = Emplooyee('Jhon', 'Smith', 25, 'Enginer')
-#print(new_person.info)
-#print(new_person.department)
+Emplooyee.department = None

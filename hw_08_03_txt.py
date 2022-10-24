@@ -1,13 +1,14 @@
 from uuid import uuid4
 from enum import Enum
+import pytest
 
-class cur(Enum):
+class Currency(Enum):
     usd = 'USD'
     eur = 'EUR'
     byn = 'BYN'
 
 class Account:
-    def __init__(self, currency : cur, amount = 0):
+    def __init__(self, currency : Currency, amount = 0):
         self.person_id = uuid4()
         self.currency = currency
         self._amount = amount
@@ -23,6 +24,7 @@ class Account:
         self._amount = new_amount
     def __repr__(self):
         return f"perrson_id = {self.person_id};currency = {self.currency};amount = {self.amount}"
-r = Account(currency = cur.eur)
-r.amount = -1
-print(r)
+Citizen = Account(currency = Currency.eur)
+with pytest.raises(ValueError):
+    Citizen.amount = -1
+print(Citizen)

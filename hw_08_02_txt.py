@@ -9,7 +9,9 @@ class TechnicalStaff(Emplooyee):
                          age = age,
                          profession = profession,
                          )
-
+    @classmethod
+    def department(Emplooyee):
+        Emplooyee.department = 'IT'
     def change_department(self):
         self.department = input('Enter department ')
 
@@ -25,8 +27,6 @@ class TechnicalStaff(Emplooyee):
         if Emplooyee.department == TechnicalStaff.department:
             return 'Welcome'
 
-
-t = TechnicalStaff('Jhon', 'Smith', 25, 'Enginer')
-Emplooyee.department = 'si'
+t = TechnicalStaff('Jhon', 'Smith', 25, 'Back_end')
 t.change_department()
 print(t.get_info())
