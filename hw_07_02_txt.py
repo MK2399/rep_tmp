@@ -7,22 +7,19 @@ class rectangle(shape):
         super().__init__('rectangle')
 
     def get_area(self):
-        super().get_area()
         return self.a * self.b
 
     def __add__(self, other):
-        flag = isinstance(other, rectangle)
-        if flag == True:
-            return self.get_area() + other.get_area()
+        if not isinstance(other, rectangle):
+            raise TypeError
         else:
-            return 'Второй элемент сложения не относится к классу rectangle.'
+            return self.get_area() + other.get_area()
 
     def __sub__(self, other):
-        flag = isinstance(other, rectangle)
-        if flag == True:
-            return self.get_area() - other.get_area()
+        if not isinstance(other, rectangle):
+            raise TypeError
         else:
-            return 'Второй элемент сложения не относится к классу rectangle.'
+            return self.get_area() - other.get_area()
 
 
 first_rectangle = rectangle(1.5, 2)

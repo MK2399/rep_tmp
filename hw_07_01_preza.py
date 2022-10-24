@@ -1,5 +1,5 @@
-class auto:
-    def __init__(self, brand, age : int, mark, weight = None, color ='Default'):
+class Auto:
+    def __init__(self, brand, age : int, mark, weight = 0, color ='Default'):
         self.brand = brand
         self.age = age
         self.mark = mark
