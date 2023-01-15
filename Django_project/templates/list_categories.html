@@ -1,0 +1,19 @@
+{% for item in category %}
+    {% if item.pk == cat_selected %}
+        <li>{{ item.name }}</li>
+    {% else %}
+        <li>
+            <a href="{{ item.get_absolute_url }}">{{ item.name }}</a>
+        </li>
+    {% endif %}
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
