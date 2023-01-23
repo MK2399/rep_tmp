@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <div class="card">
+        <img src="{{ product.image.url }}" alt="" style="width:20%">
+        <h1>{{ product.name }}</h1>
+        <p class="price">{{ product.price }}byn</p>
+        <p>{{ product.description }}</p>
+{#        <p><a href="{{ product.get_absolute_url }}"><button>Перейти к товару</button></a></p>#}
+    </div>
+{#    {% for a in product %}#}
+{#        <p>{{ a }}</p>#}
+{#        <img src="{{ a.image.url }}" width="150" height="150">#}
+{#        <p>{{ a.price }}</p>#}
+{#    {% endfor %}#}
+
+{% endblock %}

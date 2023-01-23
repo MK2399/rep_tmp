@@ -1,0 +1,44 @@
+{% load static %}
+{% load mainapp_tags %}
+<!DOCTYPE html>
+<Html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        {% block title %}<title>{{ title }}</title>{% endblock %}
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    </head>
+
+    {% block menu %}
+    <body>
+        <header>
+            <div class="topnav">
+                <a class="active" href="{% url 'Home' %}">Главная</a>
+{#                <a href="3">Каталог</a>#}
+                <a href="{% url 'About' %}">О нас</a>
+                <a href="{% url 'add_product' %}">Добавить продукт</a>
+            </div>
+        </header>
+
+        <div class="content">
+        <h1>Магазин электронной техники MY SHOP</h1>
+        <p>My shop - магазин в которым вы сможете найти различные гаджеты для вас и вашей семьи. Только оригинальный товар и лучшие цены</p>
+        </div>
+        <ul class="nav">
+                    {% if cat_selected == 0%}
+                        <li>Все категории</li>
+                    {% else %}
+                        <li><a href="{% url 'Home' %}">Все категории</a></li>
+                    {% endif %}
+                    {% show_categories 'name' cat_selected %}
+        </ul>
+        {% endblock %}
+
+        {% block content %}
+        {% endblock %}
+        <footer>&copy; Z31-Online Кучко Никита Алексеевич</footer>
+
+    </body>
+
+
+</html>
